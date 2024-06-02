@@ -1,0 +1,6 @@
+@ToDoQuarry_HostAddress = http://localhost:5265
+
+GET {{ToDoQuarry_HostAddress}}/todoquarry/
+Accept: application/json
+
+###
