@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ToDoQuarry")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e02484d2ebd26e5fc1adb2d628b82d12b8200473")]
 [assembly: System.Reflection.AssemblyProductAttribute("ToDoQuarry")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ToDoQuarry")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -14,26 +14,26 @@ public class ToDoQuarryController : ControllerBase
         _context = context;
     }
 
-
     [HttpGet]
     public IEnumerable<TodoItem> Get(){
-        return _context.TodoItems.AsEnumerable();
+        return _context.todolist.AsEnumerable();
     }
 
     [HttpPost]
     public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem todoItem)
     {
-
-        _context.TodoItems.Add(todoItem);
+        // DateTime today = DateTime.Now;
+        // todoItem.dueDate = DateOnly.FromDateTime(today);
+        _context.todolist.Add(todoItem);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction(nameof(PostTodoItem), new { id = todoItem.Id }, todoItem);
+        return CreatedAtAction(nameof(PostTodoItem), new { id = todoItem.ID }, todoItem);
     }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<TodoItem>> GetTodoItem(long id)
     {
-        var todoItem = await _context.TodoItems.FindAsync(id);
+        var todoItem = await _context.todolist.FindAsync(id);
 
         if (todoItem == null)
         {
@@ -46,7 +46,7 @@ public class ToDoQuarryController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem)
     {
-        if (id != todoItem.Id)
+        if (id != todoItem.ID)
         {
             return BadRequest();
         }
@@ -75,13 +75,13 @@ public class ToDoQuarryController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteTodoItem(long id)
     {
-        var todoItem = await _context.TodoItems.FindAsync(id);
+        var todoItem = await _context.todolist.FindAsync(id);
         if (todoItem == null)
         {
             return NotFound();
         }
 
-        _context.TodoItems.Remove(todoItem);
+        _context.todolist.Remove(todoItem);
         await _context.SaveChangesAsync();
 
         return NoContent();
@@ -90,6 +90,6 @@ public class ToDoQuarryController : ControllerBase
 
     private bool TodoItemExists(long id)
     {
-        return _context.TodoItems.Any(e => e.Id == id);
+        return _context.todolist.Any(e => e.ID == id);
     }
 }
